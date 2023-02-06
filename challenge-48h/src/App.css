@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+body {
+    perspective: 1111px;
+}
+
 .App {
     height:100vh;
     background:#333;
@@ -169,6 +173,7 @@
   }
   
   .the-button {
+    cursor: pointer;
     position:absolute;
     position:inline-block;
     width:47px;
@@ -179,7 +184,13 @@
     border-radius:50%;
     border:inset 1px rgba(0,0,0,1);
     box-shadow: 0 0 3px #777;
+    transition: box-shadow 0.3s ease-in-out;
   }
+
+  .the-button:hover {
+    box-shadow: 0 0 8px 8px rgba(255, 255, 255, 0.2);
+  }
+  
   .the-button:active {
     transition:transform .23s;
     transform: translate(-50%, -50%) rotate(67deg);
@@ -216,10 +227,6 @@
     color:#fff;
   }
   
-  body {
-    perspective: 1111px;
-  }
-  
   .phone {
     transform-style: preserve-3d;
     animation: rotate 1s;
@@ -228,14 +235,32 @@
     transform-style: preserve-3d;
     animation: base-come-up .37s reverse;
   }
-  .phone .screen  > * {
+  .phone .screen  > .animated {
     transform-style: preserve-3d;
     animation: base-come-up .7s reverse;
   }
-  .phone .screen  > .content > * {
+  .phone .screen  > .content > .animated {
     transform-style: preserve-3d;
     animation: come-up 1s reverse;
   }
+
+  .clickable {
+    cursor: pointer;
+  }
+
+  .container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    height:700px;
+    color:rgba(233,233,233,0.7);
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   @keyframes base-come-up {
     from { transform:translateZ(0); }
     to { transform:perspective(777px) translateZ(111px); }

@@ -6,14 +6,12 @@ import { Context } from '../context/context';
 
 function useProvideContext() {
 
+    const OFF_SCREEN = process.env.REACT_APP_OFF_SCREEN;
     const LOCK_SCREEN = process.env.REACT_APP_LOCK_SCREEN;
 
-    const [user, setUser] = useState("Initial user");
-    const [screen, setScreen] = useState(LOCK_SCREEN);
+    const [screen, setScreen] = useState(OFF_SCREEN);
 
     return {
-        user,
-        setUser,
         screen,
         setScreen
     }

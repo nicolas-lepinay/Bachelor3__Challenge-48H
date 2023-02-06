@@ -2,7 +2,7 @@ import React from 'react'
 
 import '../App.css';
 import useMyContext, { ProvideContext } from '../hooks/useMyContext';
-import LockScreen from '../pages/LockScreen';
+import LockScreen from '../screens/LockScreen';
 
 // FontAwesome :
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

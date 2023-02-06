@@ -1,7 +1,13 @@
+// CSS :
 import './App.css';
+
+// Context :
 import useMyContext from './hooks/useMyContext';
-import LockScreen from './pages/LockScreen';
-import UnlockScreen from './pages/UnlockScreen';
+
+// Screens :
+import OffScreen from './screens/OffScreen';
+import LockScreen from './screens/LockScreen';
+import UnlockScreen from './screens/UnlockScreen';
 
 // FontAwesome :
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,10 +16,9 @@ import { faSignal, faWifi, faLock, faLocationArrow, faBatteryFull, faCircle  } f
 // Material Design Icons
 import { Wifi, WifiOff } from '@material-ui/icons';
 
-//import Application from './Application/Application';
-
 function App() {
 
+    const OFF_SCREEN = process.env.REACT_APP_OFF_SCREEN;
     const LOCK_SCREEN = process.env.REACT_APP_LOCK_SCREEN;
     const UNLOCK_SCREEN = process.env.REACT_APP_UNLOCK_SCREEN;
 
@@ -42,30 +47,38 @@ function App() {
                 <div className="screen">
                     <div className="content">
                         <div className="status-bar">
-                            <div className="left-side">
-                                <FontAwesomeIcon icon={faSignal} style={FA_STYLE}/>SFR
-                                <WifiOff style={MD_STYLE}/>
-                            </div> 
-                            <div className="middle-side">
-                                <FontAwesomeIcon icon={faLock} style={FA_STYLE}/>
-                            </div>
-                            <div className="right-side">
-                                <FontAwesomeIcon icon={faLocationArrow} style={FA_STYLE}/>
-                                <FontAwesomeIcon icon={faBatteryFull} style={FA_STYLE}/>
-                            </div>
+                        
+                        {ctx.screen !== OFF_SCREEN &&                       
+                            <>
+                                <div className="left-side">
+                                    <FontAwesomeIcon icon={faSignal} style={FA_STYLE}/>SFR
+                                    <WifiOff style={MD_STYLE}/>
+                                </div>
+                                <div className="middle-side">
+                                    <FontAwesomeIcon icon={faLock} style={FA_STYLE}/>
+                                </div>
+                                <div className="right-side">
+                                    <FontAwesomeIcon icon={faLocationArrow} style={FA_STYLE}/>
+                                    <FontAwesomeIcon icon={faBatteryFull} style={FA_STYLE}/>
+                                </div>
+                            </>
+                        }
                         </div>
 
-                        {ctx.screen == LOCK_SCREEN &&                       
+                        {ctx.screen === OFF_SCREEN &&                       
+                            (<OffScreen/>)
+                        }
+                        {ctx.screen === LOCK_SCREEN &&                       
                             (<LockScreen/>)
                         }
-                        {ctx.screen == UNLOCK_SCREEN &&                       
+                        {ctx.screen === UNLOCK_SCREEN &&                       
                             (<UnlockScreen/>)
                         }
 
                     </div>
                 </div>  
                     <div className="bottom-bar">
-                        <div className="the-button"></div>
+                        <div className="the-button" onClick={() => ctx.setScreen(ctx.screen === OFF_SCREEN ? LOCK_SCREEN : OFF_SCREEN)}></div>
                     </div>
             </div>
         </div>
