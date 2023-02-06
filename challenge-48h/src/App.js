@@ -9,6 +9,7 @@ import OffScreen from './screens/OffScreen';
 import LockScreen from './screens/LockScreen';
 import UnlockScreen from './screens/UnlockScreen';
 import Timer from './screens/Timer';
+import FinalForm from './screens/FinalForm';
 
 // FontAwesome :
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -86,6 +87,9 @@ function App() {
             </div>
             <div className='timer'>
                 <Timer/>
+            </div>
+            <div className='finalForm'>
+                <FinalForm/>
             </div>
         </div>
     );

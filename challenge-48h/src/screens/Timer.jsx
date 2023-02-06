@@ -43,7 +43,6 @@ function Timer(props) {
       
     if (time > 1800000){
         alert(`Temps écoulé,   perdu!`);
-        window.location.reload(false);
     };
 
     return (

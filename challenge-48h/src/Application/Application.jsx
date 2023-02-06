@@ -4,6 +4,7 @@ import '../App.css';
 import useMyContext, { ProvideContext } from '../hooks/useMyContext';
 import LockScreen from '../screens/LockScreen';
 import Timer from '../screens/Timer';
+import FinalForm from '../screens/FinalForm';
 
 // FontAwesome :
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -63,6 +64,9 @@ function Application() {
             </div>
             <div className='timer'>
                 <Timer/>
+            </div>
+            <div className='finalForm'>
+                <FinalForm/>
             </div>
         </div>
     )
