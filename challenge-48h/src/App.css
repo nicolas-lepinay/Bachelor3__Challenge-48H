@@ -133,7 +133,17 @@ body {
     background-size:111%;
   /*  background-repeat:no-repeat; */
   }
-  
+
+  .screen > .content.home-bg {
+    background-image: url('../public/bg002.jpg');
+}
+
+    .screen > .content.maps-bg {
+        background-image: url('../public/maps.png');
+        background-size: cover;
+        background-repeat:no-repeat;
+    }
+    
   .screen > .content > .status-bar {
     position:absolute;
     box-sizing:border-box;
@@ -200,17 +210,17 @@ body {
     position:relative;
     top:77px;
     text-align:center;
+    color:white;
   }
   
   .clock #time {
     font-size:3.7em;
     font-weight:100;
     color:#fff;
-  /*  background:red; */
   }
   
-  .clock #date {
-    color:#fff;
+  .text-shadow {
+    text-shadow:rgba(20, 4, 49, 0.9) 1px 0 10px;
   }
   
   .downside {
@@ -260,6 +270,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
   }
 
   @keyframes base-come-up {

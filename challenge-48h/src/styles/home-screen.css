@@ -1,0 +1,44 @@
+.apps {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    position: relative;
+    top: 150px;
+    left: 30px;
+    flex-wrap: wrap;
+}
+
+.app:nth-child(1) {
+    background: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+}
+
+.app:nth-child(2) {
+    background: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+}
+
+.app:nth-child(3) {
+    background: linear-gradient(to right top, #cc6bd1, #8794ff, #00b4ff, #00cbf9, #00dbd7, #4eddb7, #7fdc96, #abd879, #c4cb64, #dabd58, #ecad57, #fb9c5f);
+}
+
+.app:nth-child(4) {
+    background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
+    margin-top: 80px;
+}
+
+.app {
+    border-radius: 20px;
+    height: 80px;
+    margin-right: 30px;
+    width: 80px;
+    position: relative;
+}
+
+.app p {
+    color: white;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -50px;
+    text-shadow:rgba(20, 4, 49, 0.9) 1px 0 10px;
+}

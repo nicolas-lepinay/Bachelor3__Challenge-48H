@@ -2,7 +2,7 @@ import React from 'react'
 
 // FontAwesome :
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircle, faLock } from '@fortawesome/free-solid-svg-icons'
+import { faCircle, faLock } from '@fortawesome/free-solid-svg-icons';
 
 import useMyContext from '../hooks/useMyContext';
 
@@ -27,7 +27,7 @@ function LockScreen() {
         <div className='animated clickable' onClick={() => ctx.setScreen(UNLOCK_SCREEN)}>
             <div className="clock" >
                 <div id="time">{time}</div>
-                <div id="date">Mardi 6 février</div>
+                <div id="date">Mardi 7 février</div>
             </div>
             <div className="container">
                 <FontAwesomeIcon icon={faLock} style={FA_STYLE}/>

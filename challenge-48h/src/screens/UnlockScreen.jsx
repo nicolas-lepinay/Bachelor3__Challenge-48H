@@ -22,20 +22,22 @@ function UnlockScreen() {
 
     const [password, setPassword] = useState('')
 
+    const [invalidClass, setInvalidClass] = useState('')
+
     return (
         <div>
-            <div className="clock" >
+            <div className="clock">
                 <div className="pincode-title">Entrez votre code PIN</div>
                 <div className="pincode-subtitle">Votre code PIN contient au moins 6 caractères.</div>
                 <input 
-                    className='password-input' 
+                    className={`password-input ${invalidClass}`} 
                     placeholder='Saisir votre code PIN'
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => {setPassword(e.target.value); setInvalidClass('') }}
                 />
                 <br></br>
                 <button 
                     className='confirm-button' 
-                    onClick={() => password === PINCODE ? ctx.setScreen(HOME_SCREEN) : console.log('WRONG PINCODE') }
+                    onClick={() => { password === PINCODE ? ctx.setScreen(HOME_SCREEN) : setInvalidClass('invalid') } }
                 >Confirmer</button>
             </div>
 

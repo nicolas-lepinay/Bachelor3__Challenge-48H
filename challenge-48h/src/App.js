@@ -8,10 +8,12 @@ import useMyContext from './hooks/useMyContext';
 import OffScreen from './screens/OffScreen';
 import LockScreen from './screens/LockScreen';
 import UnlockScreen from './screens/UnlockScreen';
+import HomeScreen from './screens/HomeScreen';
+import MapsScreen from './screens/MapsScreen';
 
 // FontAwesome :
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignal, faWifi, faLock, faLocationArrow, faBatteryFull, faCircle  } from '@fortawesome/free-solid-svg-icons'
+import { faSignal, faWifi, faLock, faCloud, faLocationArrow, faBatteryFull, faCircle  } from '@fortawesome/free-solid-svg-icons'
 
 // Material Design Icons
 import { Wifi, WifiOff } from '@material-ui/icons';
@@ -22,6 +24,7 @@ function App() {
     const LOCK_SCREEN = process.env.REACT_APP_LOCK_SCREEN;
     const UNLOCK_SCREEN = process.env.REACT_APP_UNLOCK_SCREEN;
     const HOME_SCREEN = process.env.REACT_APP_HOME_SCREEN;
+    const MAPS_SCREEN = process.env.REACT_APP_MAPS_SCREEN;
 
     const FA_STYLE = {
         padding: '0 6px',
@@ -45,7 +48,10 @@ function App() {
                 <button className="volup"></button>
                 <button className="voldown"></button>
                 <div className="screen">
-                    <div className="content">
+                    <div className={`content 
+                                    ${ctx.screen === HOME_SCREEN ? 'home-bg' : ''}
+                                    ${ctx.screen === MAPS_SCREEN ? 'maps-bg' : ''}
+                        `}>
                         <div className="status-bar">
                         
                         {ctx.screen !== OFF_SCREEN &&                       
@@ -55,7 +61,12 @@ function App() {
                                     <WifiOff style={MD_STYLE}/>
                                 </div>
                                 <div className="middle-side">
-                                    <FontAwesomeIcon icon={faLock} style={FA_STYLE}/>
+                                    {(ctx.screen === LOCK_SCREEN || ctx.screen === UNLOCK_SCREEN) &&
+                                        <FontAwesomeIcon icon={faLock} style={FA_STYLE}/>
+                                    }
+                                    {(ctx.screen !== LOCK_SCREEN && ctx.screen !== UNLOCK_SCREEN) &&
+                                        <FontAwesomeIcon icon={faCloud} style={FA_STYLE}/>
+                                    }
                                 </div>
                                 <div className="right-side">
                                     <FontAwesomeIcon icon={faLocationArrow} style={FA_STYLE}/>
@@ -75,7 +86,10 @@ function App() {
                             (<UnlockScreen/>)
                         }
                         {ctx.screen === HOME_SCREEN &&                       
-                            (<OffScreen/>)
+                            (<HomeScreen/>)
+                        }
+                        {ctx.screen === MAPS_SCREEN &&                       
+                            (<MapsScreen/>)
                         }
                     </div>
                 </div>  
