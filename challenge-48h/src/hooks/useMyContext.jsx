@@ -6,11 +6,16 @@ import { Context } from '../context/context';
 
 function useProvideContext() {
 
+    const LOCK_SCREEN = process.env.REACT_APP_LOCK_SCREEN;
+
     const [user, setUser] = useState("Initial user");
+    const [screen, setScreen] = useState(LOCK_SCREEN);
 
     return {
         user,
-        setUser
+        setUser,
+        screen,
+        setScreen
     }
 }
 

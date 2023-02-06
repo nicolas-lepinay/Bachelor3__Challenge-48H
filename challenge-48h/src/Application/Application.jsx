@@ -1,7 +1,8 @@
-import './App.css';
-import useMyContext from './hooks/useMyContext';
-import LockScreen from './pages/LockScreen';
-import UnlockScreen from './pages/UnlockScreen';
+import React from 'react'
+
+import '../App.css';
+import useMyContext, { ProvideContext } from '../hooks/useMyContext';
+import LockScreen from '../pages/LockScreen';
 
 // FontAwesome :
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,12 +11,7 @@ import { faSignal, faWifi, faLock, faLocationArrow, faBatteryFull, faCircle  } f
 // Material Design Icons
 import { Wifi, WifiOff } from '@material-ui/icons';
 
-//import Application from './Application/Application';
-
-function App() {
-
-    const LOCK_SCREEN = process.env.REACT_APP_LOCK_SCREEN;
-    const UNLOCK_SCREEN = process.env.REACT_APP_UNLOCK_SCREEN;
+function Application() {
 
     const FA_STYLE = {
         padding: '0 6px',
@@ -27,8 +23,8 @@ function App() {
         width: '16px'
     }
 
-    const ctx = useMyContext();
-    console.log(ctx?.screen)
+    const context = useMyContext();
+    console.log(context)
 
     return (
         <div className="App">              
@@ -55,12 +51,8 @@ function App() {
                             </div>
                         </div>
 
-                        {ctx.screen == LOCK_SCREEN &&                       
-                            (<LockScreen/>)
-                        }
-                        {ctx.screen == UNLOCK_SCREEN &&                       
-                            (<UnlockScreen/>)
-                        }
+                        <LockScreen/>
+                        <h1>{context?.user}</h1>
 
                     </div>
                 </div>  
@@ -69,7 +61,7 @@ function App() {
                     </div>
             </div>
         </div>
-    );
+    )
 }
 
-export default App;
+export default Application
