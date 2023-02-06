@@ -21,6 +21,7 @@ function App() {
     const OFF_SCREEN = process.env.REACT_APP_OFF_SCREEN;
     const LOCK_SCREEN = process.env.REACT_APP_LOCK_SCREEN;
     const UNLOCK_SCREEN = process.env.REACT_APP_UNLOCK_SCREEN;
+    const HOME_SCREEN = process.env.REACT_APP_HOME_SCREEN;
 
     const FA_STYLE = {
         padding: '0 6px',
@@ -33,7 +34,6 @@ function App() {
     }
 
     const ctx = useMyContext();
-    console.log(ctx?.screen)
 
     return (
         <div className="App">              
@@ -74,7 +74,9 @@ function App() {
                         {ctx.screen === UNLOCK_SCREEN &&                       
                             (<UnlockScreen/>)
                         }
-
+                        {ctx.screen === HOME_SCREEN &&                       
+                            (<OffScreen/>)
+                        }
                     </div>
                 </div>  
                     <div className="bottom-bar">

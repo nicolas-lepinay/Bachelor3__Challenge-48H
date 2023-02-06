@@ -5,7 +5,6 @@ import '../styles/off-screen.css';
 
 function OffScreen() {
 
-
     return (
         <div className='off-screen'>
         </div>
