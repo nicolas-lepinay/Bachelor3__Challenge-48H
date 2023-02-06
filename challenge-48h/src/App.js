@@ -10,6 +10,9 @@ import LockScreen from './screens/LockScreen';
 import UnlockScreen from './screens/UnlockScreen';
 import HomeScreen from './screens/HomeScreen';
 import MapsScreen from './screens/MapsScreen';
+import GoogleReviewsScreen from './screens/GoogleReviewsScreen';
+import SettingsScreen from './screens/SettingsScreen';
+import WifiScreen from './screens/WifiScreen';
 
 // FontAwesome :
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -25,6 +28,9 @@ function App() {
     const UNLOCK_SCREEN = process.env.REACT_APP_UNLOCK_SCREEN;
     const HOME_SCREEN = process.env.REACT_APP_HOME_SCREEN;
     const MAPS_SCREEN = process.env.REACT_APP_MAPS_SCREEN;
+    const GOOGLE_REVIEWS_SCREEN = process.env.REACT_APP_GOOGLE_REVIEWS_SCREEN;
+    const SETTINGS_SCREEN = process.env.REACT_APP_SETTINGS_SCREEN;
+    const WIFI_SCREEN = process.env.REACT_APP_WIFI_SCREEN;
 
     const FA_STYLE = {
         padding: '0 6px',
@@ -90,6 +96,15 @@ function App() {
                         }
                         {ctx.screen === MAPS_SCREEN &&                       
                             (<MapsScreen/>)
+                        }
+                        {ctx.screen === GOOGLE_REVIEWS_SCREEN &&                       
+                            (<GoogleReviewsScreen/>)
+                        }
+                        {ctx.screen === SETTINGS_SCREEN &&                       
+                            (<SettingsScreen />)
+                        }
+                        {ctx.screen === WIFI_SCREEN &&                       
+                            (<WifiScreen />)
                         }
                     </div>
                 </div>  

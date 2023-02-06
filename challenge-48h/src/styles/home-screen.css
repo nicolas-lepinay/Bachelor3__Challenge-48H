@@ -32,6 +32,11 @@
     margin-right: 30px;
     width: 80px;
     position: relative;
+    transition: scale 0.3s ease-in-out;
+}
+
+.app:hover {
+    scale: 1.15;
 }
 
 .app p {

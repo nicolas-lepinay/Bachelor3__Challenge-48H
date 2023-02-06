@@ -14,6 +14,7 @@ function HomeScreen() {
 
     // Screens:
     const MAPS_SCREEN = process.env.REACT_APP_MAPS_SCREEN;
+    const SETTINGS_SCREEN = process.env.REACT_APP_SETTINGS_SCREEN;
 
     const FA_STYLE = {
         color: 'white',
@@ -34,7 +35,7 @@ function HomeScreen() {
     });
 
     return (
-        <div className='animated clickable'>
+        <div className='clickable'>
             <div className="clock" >
                 <div id="time" className='text-shadow'>{time}</div>
                 <div id="date" className='text-shadow'>Mardi 7 février</div>
@@ -57,7 +58,7 @@ function HomeScreen() {
                 </div>
 
                 <div className="app">
-                    <FontAwesomeIcon icon={faGear} style={FA_STYLE}/>
+                    <FontAwesomeIcon icon={faGear} style={FA_STYLE} onClick={() => ctx.setScreen(SETTINGS_SCREEN)}/>
                     <p>Paramètres</p>
                 </div>
 

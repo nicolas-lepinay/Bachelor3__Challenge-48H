@@ -1,3 +1,56 @@
 .icon {
     cursor: pointer;
 }
+
+.subtitle {
+    position: absolute;
+    top: 412px;
+    left: 125px;
+    color: #cc0000;
+    font-size: 0.8rem;
+}
+
+.map-container:hover {
+    scale: 1.3;
+}
+
+.me {
+    position: absolute;
+    top: 330px;
+    left: 200px;
+    background-color: rgb(66, 134, 244);
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    border: 3px solid white;
+    box-shadow:rgba(20, 4, 49, 0.5) 1px 0 10px;
+    animation-name: blink;
+    animation-duration: 0.8s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+}
+
+.offline-msg {
+    text-align: center;
+    margin: -60px auto;
+    padding-left: 15px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    font-weight: 500;
+    background-color: rgba(30, 30, 30, 0.8);
+    border-radius: 200px;
+    padding: 0.8rem;
+    width: 55%;
+    color: white;
+}
+
+@keyframes blink {
+    0% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
