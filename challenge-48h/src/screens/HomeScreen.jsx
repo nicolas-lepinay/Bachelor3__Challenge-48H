@@ -16,6 +16,8 @@ function HomeScreen() {
     const MAPS_SCREEN = process.env.REACT_APP_MAPS_SCREEN;
     const SETTINGS_SCREEN = process.env.REACT_APP_SETTINGS_SCREEN;
     const OUTLOOK_SCREEN = process.env.REACT_APP_OUTLOOK_SCREEN;
+    const EMAIL_SCREEN = process.env.REACT_APP_EMAIL_SCREEN;
+    const MESSAGE_SCREEN = process.env.REACT_APP_MESSAGE_SCREEN;
 
     const FA_STYLE = {
         color: 'white',
@@ -49,11 +51,13 @@ function HomeScreen() {
                 </div>
 
                 <div className="app">
-                    <FontAwesomeIcon icon={faMessage} style={FA_STYLE}/>
+                    <FontAwesomeIcon icon={faMessage} style={FA_STYLE} onClick={() => ctx.setScreen(MESSAGE_SCREEN)}/>
                     <p>Messages</p>
                 </div>
 
-                <div className="app" onClick={() => ctx.setScreen(OUTLOOK_SCREEN)}>
+                <div className="app" onClick={() => { 
+                        ctx.loggedInToEmail ? ctx.setScreen(EMAIL_SCREEN) : ctx.setScreen(OUTLOOK_SCREEN)
+                    }}>
                     <FontAwesomeIcon icon={faEnvelope} style={FA_STYLE}/>
                     <p>Gmail</p>
                 </div>

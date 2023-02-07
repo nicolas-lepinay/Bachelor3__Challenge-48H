@@ -13,12 +13,16 @@ import UnlockScreen from './screens/UnlockScreen';
 import HomeScreen from './screens/HomeScreen';
 import MapsScreen from './screens/MapsScreen';
 import GoogleReviewsScreen from './screens/GoogleReviewsScreen';
+import GoogleReviewsScreen2 from './screens/GoogleReviewsScreen2';
 import SettingsScreen from './screens/SettingsScreen';
 import WifiScreen from './screens/WifiScreen';
 import OutlookScreen from './screens/OutlookScreen';
+import EmailScreen from './screens/EmailScreen';
+import MessageScreen from './screens/MessageScreen';
 
 // Components :
 import CreditCard from './components/CreditCard';
+import Smartwatch from './components/Smartwatch';
 
 // FontAwesome :
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -35,10 +39,12 @@ function App() {
     const HOME_SCREEN = process.env.REACT_APP_HOME_SCREEN;
     const MAPS_SCREEN = process.env.REACT_APP_MAPS_SCREEN;
     const GOOGLE_REVIEWS_SCREEN = process.env.REACT_APP_GOOGLE_REVIEWS_SCREEN;
+    const GOOGLE_REVIEWS_SCREEN_2 = process.env.REACT_APP_GOOGLE_REVIEWS_SCREEN_2;
     const SETTINGS_SCREEN = process.env.REACT_APP_SETTINGS_SCREEN;
     const WIFI_SCREEN = process.env.REACT_APP_WIFI_SCREEN;
     const OUTLOOK_SCREEN = process.env.REACT_APP_OUTLOOK_SCREEN;
     const EMAIL_SCREEN = process.env.REACT_APP_EMAIL_SCREEN;
+    const MESSAGE_SCREEN = process.env.REACT_APP_MESSAGE_SCREEN;
 
     const FA_STYLE = {
         padding: '0 6px',
@@ -53,6 +59,7 @@ function App() {
     const ctx = useMyContext();
 
     const [hideOverlay, setHideOverlay] = useState(false);
+    const [triggerWatch, setTriggerWatch] = useState(false);
 
     return (
         <div className="App">  
@@ -60,8 +67,15 @@ function App() {
                 null 
                 :
                 <div className="start-overlay">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat voluptatibus assumenda enim officiis in expedita numquam ipsam pariatur, veritatis corrupti?</p>
-                    <button onClick={() => setHideOverlay(true)}>Commencer</button>
+                    <div style={{padding: '0 20%', lineHeight: '2rem'}}>
+                        <p>Vous avez accepté et signé un nouveau contrat de tueur à gages : l'assassinat d’un fonctionnaire.
+                        Vous ne disposez d'aucune information à son sujet, mais vos talents de fin limier vous ont mené à son bureau de travail.
+                        </p>
+                        <p>Vous disposez de 30 minutes pour déterminer <b>l'endroit</b>, <b>l'heure</b> et <b>le moyen</b> d'assassiner votre cible pour que sa mort ait l'air accidentelle.</p>
+
+                        <p>En tant que professionnel, votre instinct vous dit d'aller d'abord chercher des informations personnelles sur <a href="https://m.facebook.com/login/?locale=fr_FR" target='_blank'>les réseaux sociaux</a>.</p>
+                        <button onClick={() => { setHideOverlay(true); setTriggerWatch(true) }}>Commencer</button>
+                    </div>
                 </div>
             } 
 
@@ -119,6 +133,9 @@ function App() {
                         {ctx.screen === GOOGLE_REVIEWS_SCREEN &&                       
                             (<GoogleReviewsScreen/>)
                         }
+                        {ctx.screen === GOOGLE_REVIEWS_SCREEN_2 &&                       
+                            (<GoogleReviewsScreen2/>)
+                        }
                         {ctx.screen === SETTINGS_SCREEN &&                       
                             (<SettingsScreen />)
                         }
@@ -129,7 +146,10 @@ function App() {
                             (<OutlookScreen />)
                         }
                         {ctx.screen === EMAIL_SCREEN &&                       
-                            (<HomeScreen />)
+                            (<EmailScreen />)
+                        }
+                        {ctx.screen === MESSAGE_SCREEN &&                       
+                            (<MessageScreen />)
                         }
                     </div>
                 </div>  
@@ -139,13 +159,21 @@ function App() {
             </div>
 
             <div className="sticky-note">
-                <p>—  Penser mettre à jour profil Facebook</p>
+                <p>—  Penser vérifier publications Facebook</p>
                 <p>—  Anniversaire de mariage ce soir ! !</p>
+            </div>
+
+            <div className="sticky-note right">
+                <p>Prévenir Mr. Vigenère pour la FERIA de vendredi</p>
+                <p>MMGXOQCKM</p>
             </div>
 
             <div className='credit-card-div'>
                 <CreditCard />
             </div>
+
+            <Smartwatch triggered={triggerWatch} />
+
         </div>
     );
 }

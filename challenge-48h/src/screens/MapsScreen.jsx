@@ -19,6 +19,7 @@ function MapsScreen() {
 
     const HOME_SCREEN = process.env.REACT_APP_HOME_SCREEN;
     const GOOGLE_REVIEWS_SCREEN = process.env.REACT_APP_GOOGLE_REVIEWS_SCREEN;
+    const GOOGLE_REVIEWS_SCREEN_2 = process.env.REACT_APP_GOOGLE_REVIEWS_SCREEN_2;
 
     const FA_STYLE = {
         height: '40px',
@@ -36,6 +37,15 @@ function MapsScreen() {
         color: '#cc0000',
     }
 
+    const MD_STYLE_2 = {
+        height: '40px',
+        width: '40px',
+        position: 'absolute',
+        top: '180px',
+        left: '280px',
+        color: '#cc0000',
+    }
+
     return (
         <div>
             <FontAwesomeIcon className='icon' icon={faChevronLeft} style={FA_STYLE} onClick={() => ctx.setScreen(HOME_SCREEN)}/>
@@ -43,6 +53,11 @@ function MapsScreen() {
             <div style={{cursor: 'pointer'}} onClick={() => ctx.setScreen(GOOGLE_REVIEWS_SCREEN)}>
                 <PinDrop style={MD_STYLE}/>
                 <p className='subtitle'>Café Vermeer</p>
+            </div>
+
+            <div style={{cursor: 'pointer'}} onClick={() => ctx.setScreen(GOOGLE_REVIEWS_SCREEN_2)}>
+                <PinDrop style={MD_STYLE_2}/>
+                <p className='subtitle_2'>Le Germinal</p>
             </div>
             <div className='me'></div>
         </div>

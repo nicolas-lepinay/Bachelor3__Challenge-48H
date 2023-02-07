@@ -5,7 +5,7 @@ import '../styles/outlook-screen.css';
 
 // FontAwesome :
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft, faUser, faEye } from '@fortawesome/free-solid-svg-icons';
 
 // Material Design Icons
 import { WifiOff } from '@material-ui/icons';
@@ -50,7 +50,8 @@ function OutlookScreen() {
     }
 
     const [password, setPassword] = useState('');
-
+    const [invalidClass, setInvalidClass] = useState('')
+    const [showPassword, setShowPassword] = useState(false);
 
     const OfflinePopup = () => {
         
@@ -80,17 +81,28 @@ function OutlookScreen() {
                         <FontAwesomeIcon icon={faUser} style={FA_STYLE}/>
                     </div>
                     <p style={{fontSize: '0.9rem'}}>{EMAIL_ADDRESS}</p>
-                    <input 
-                        type="password" 
-                        placeholder="Mot de passe" 
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
+                    <div style={{position: 'relative', width: '90%', margin: 'auto'}}>
+                        <input
+                            type={showPassword ? "text" : "password"} 
+                            placeholder="Mot de passe"
+                            className={`${invalidClass}`}
+                            onChange={(e) => { setPassword(e.target.value); setInvalidClass('') } }
+                        />
+                        <FontAwesomeIcon
+                            icon={faEye}
+                            style={{fontSize: '0.9rem', position: 'absolute', top: '20px', right: '5px' }}
+                            onClick={() => setShowPassword(!showPassword)}
+                        />
+                    </div>
                     <button 
                         className='signin-btn'
                         onClick={() => {
-                            if(password === EMAIL_PASSWORD) {
+                            if(password.toLowerCase() === EMAIL_PASSWORD.toLowerCase()) {
                                 ctx.setLoggedInToEmail(true);
-                                ctx.setScreen(EMAIL_SCREEN)
+                                ctx.setScreen(EMAIL_SCREEN);
+                            }
+                            else {
+                                setInvalidClass('invalid');
                             }
                         }}
                     >Se connecter</button>

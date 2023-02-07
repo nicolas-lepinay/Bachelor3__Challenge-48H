@@ -9,7 +9,7 @@ body {
     height:100vh;
     background:#333;
     background-image: linear-gradient(to left top,
-                          #333, #555, #777);
+                          rgb(51, 51, 51), #555, #777);
     /* background-image: url('../public/wood.jpg'); */
     font-family: helvetica, sans-serif;
     font-family: 'Roboto', sans-serif;
@@ -317,6 +317,17 @@ body {
     color: rgb(14, 10, 92);
 }
 
+.sticky-note.right {
+    top: 150px;
+    left: auto;
+    right: 180px;
+    rotate: 3deg;
+    color: rgb(14, 10, 92);
+    z-index: 10;
+    box-shadow: 0 8px 12px rgba(0,0,0,0.4);
+
+}
+
 .start-overlay {
     background-color: rgb(21, 21, 21);
     color: white;
@@ -330,6 +341,16 @@ body {
     flex-direction: column;
     width: 100vw;
     z-index: 999999;
+}
+
+.start-overlay b {
+    color: rgb(255, 84, 84);
+}
+
+.start-overlay a {
+    text-decoration: none;
+    color: rgb(255, 84, 84);
+    text-decoration: underline;
 }
 
 .start-overlay button {
@@ -347,6 +368,59 @@ body {
 
 .start-overlay button:hover {
     background-color: rgb(212, 212, 212);
+}
+
+/* ==== WATCH */
+
+.watch-container
+{
+    position: absolute;
+    top: 470px;
+    left: 60px;
+    display: flex;
+    flex-direction: row;
+    margin: fit-content;
+}
+
+.watch
+{
+  position: relative;
+  text-align: center;
+  rotate: 10deg;
+}
+
+.currentTime
+{
+  color: white;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  font-size: 30px;
+  transform: translate(-50%, -50%);
+  letter-spacing: 1.5px;
+  font-weight: bold;
+}
+
+.heartRate
+{
+  position: absolute;
+  text-align: center;
+  display: none;
+  top: 47%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.hbNumber
+{
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 2px;
+}
+
+.watchImage
+{
+  width: 420px;
 }
 
   @keyframes base-come-up {

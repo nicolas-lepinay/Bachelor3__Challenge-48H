@@ -10,6 +10,15 @@
     font-size: 0.8rem;
 }
 
+.subtitle_2 {
+    position: absolute;
+    top: 210px;
+    left: 265px;
+    color: #cc0000;
+    font-size: 0.8rem;
+}
+
+
 .map-container:hover {
     scale: 1.3;
 }
