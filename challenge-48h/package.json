@@ -39,5 +39,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^1.2.3",
+    "cross-env": "^7.0.3"
+  },
+  "resolutions": {
+    "mini-css-extract-plugin": "2.4.7"
   }
 }
