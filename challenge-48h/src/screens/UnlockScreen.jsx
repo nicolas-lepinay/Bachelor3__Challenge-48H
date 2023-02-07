@@ -21,14 +21,13 @@ function UnlockScreen() {
     const ctx = useMyContext();
 
     const [password, setPassword] = useState('')
-
     const [invalidClass, setInvalidClass] = useState('')
 
     return (
         <div>
             <div className="clock">
                 <div className="pincode-title">Entrez votre code PIN</div>
-                <div className="pincode-subtitle">Votre code PIN contient au moins 6 caractères.</div>
+                <div className="pincode-subtitle">Votre code PIN contient 6 caractères.</div>
                 <input 
                     className={`password-input ${invalidClass}`} 
                     placeholder='Saisir votre code PIN'

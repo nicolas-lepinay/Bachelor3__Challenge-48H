@@ -28,8 +28,8 @@ function MapsScreen() {
     }
 
     const MD_STYLE = {
-        height: '50px',
-        width: '50px',
+        height: '40px',
+        width: '40px',
         position: 'absolute',
         top: '370px',
         left: '140px',
@@ -39,7 +39,7 @@ function MapsScreen() {
     return (
         <div>
             <FontAwesomeIcon className='icon' icon={faChevronLeft} style={FA_STYLE} onClick={() => ctx.setScreen(HOME_SCREEN)}/>
-            <h1 className='offline-msg'>Vous êtes hors-connexion</h1>
+            {!ctx.online && <h1 className='offline-msg'>Vous êtes hors-connexion</h1>}
             <div style={{cursor: 'pointer'}} onClick={() => ctx.setScreen(GOOGLE_REVIEWS_SCREEN)}>
                 <PinDrop style={MD_STYLE}/>
                 <p className='subtitle'>Café Vermeer</p>

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
 
 body {
     perspective: 1111px;
@@ -9,6 +10,7 @@ body {
     background:#333;
     background-image: linear-gradient(to left top,
                           #333, #555, #777);
+    /* background-image: url('../public/wood.jpg'); */
     font-family: helvetica, sans-serif;
     font-family: 'Roboto', sans-serif;
   }
@@ -21,7 +23,7 @@ body {
   
   .phone {
     position: relative;
-    rotate: 5deg;
+    rotate: 3deg;
     display:inline-block;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%) matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1);
@@ -33,14 +35,14 @@ body {
     border-radius:47px;
     border:3px solid #777;
     box-shadow:inset 3px 3px 11px #333,
-               inset -3px -3px 11px #000,
-                0 0 3px #333, 
-                0 7px 11px 0 #000,
-                0 0 1px 3px #373737,
-                0 1px 1px 1px #000, 
-                0 -1px 1px 1px #000,
-                1px 0 1px 1px #000, 
-                -1px 0 1px 1px #000;
+        inset -3px -3px 11px #000,
+        0 0 3px #333, 
+        0 7px 11px 0 #000,
+        0 0 1px 3px #373737,
+        0 1px 1px 1px #000, 
+        0 -1px 1px 1px #000,
+        1px 0 1px 1px #000, 
+        -1px 0 1px 1px #000;
     background:#000;
   /*  overflow:hidden; */
   }
@@ -94,7 +96,7 @@ body {
   
   button.lock {
     right:-9px;
-    transition:right .077s;
+    transition: right .077s;
   }
   button.lock:active {
     right:-7px;
@@ -223,6 +225,27 @@ body {
   .text-shadow {
     text-shadow:rgba(20, 4, 49, 0.9) 1px 0 10px;
   }
+
+  .d-flex {
+    display: flex;
+    align-items: center;
+  }
+
+  .row {
+    flex-direction: row;
+  }
+
+  .column {
+    flex-direction: column;
+  }
+
+  .space-between {
+    justify-content: space-between;
+  }
+
+  button {
+    cursor: pointer;
+}
   
   .downside {
     position:absolute;
@@ -241,10 +264,10 @@ body {
   
   .phone {
     transform-style: preserve-3d;
-    animation: rotate 1s;
+    /* animation: rotate 1s; */
   }
   .phone .screen  {
-    transform-style: preserve-3d;
+    /* transform-style: preserve-3d; */
     animation: base-come-up .37s reverse;
   }
   .phone .screen  > .animated {
@@ -273,6 +296,58 @@ body {
     justify-content: center;
     flex-direction: column;
   }
+
+  .sticky-note {
+    font: 32px 'Gloria Hallelujah', cursive; 
+    line-height: 1.5;
+    border: 0;
+    border-radius: 3px;
+    background: linear-gradient(#F9EFAF, #F7E98D);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: box-shadow 0.5s ease;
+    font-smoothing: subpixel-antialiased;
+    width: 350px;
+    height: 300px;
+    position: absolute;
+    padding: 20px;
+    top: 200px;
+    left: 200px;
+    rotate: -3deg;
+    color: rgb(14, 10, 92);
+}
+
+.start-overlay {
+    background-color: rgb(21, 21, 21);
+    color: white;
+    font-size: 1.3rem;
+    height: 100vh;
+    position: absolute;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+    z-index: 999999;
+}
+
+.start-overlay button {
+    background-color: white;
+    color: black;
+    padding: 10px 26px;
+    border-radius: 100px;
+    outline: none;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease-in-out;
+    margin-top: 26px;
+}
+
+.start-overlay button:hover {
+    background-color: rgb(212, 212, 212);
+}
 
   @keyframes base-come-up {
     from { transform:translateZ(0); }

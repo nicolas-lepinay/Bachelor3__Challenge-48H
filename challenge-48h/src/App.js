@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 // CSS :
 import './App.css';
 
@@ -13,6 +15,10 @@ import MapsScreen from './screens/MapsScreen';
 import GoogleReviewsScreen from './screens/GoogleReviewsScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import WifiScreen from './screens/WifiScreen';
+import OutlookScreen from './screens/OutlookScreen';
+
+// Components :
+import CreditCard from './components/CreditCard';
 
 // FontAwesome :
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -31,6 +37,8 @@ function App() {
     const GOOGLE_REVIEWS_SCREEN = process.env.REACT_APP_GOOGLE_REVIEWS_SCREEN;
     const SETTINGS_SCREEN = process.env.REACT_APP_SETTINGS_SCREEN;
     const WIFI_SCREEN = process.env.REACT_APP_WIFI_SCREEN;
+    const OUTLOOK_SCREEN = process.env.REACT_APP_OUTLOOK_SCREEN;
+    const EMAIL_SCREEN = process.env.REACT_APP_EMAIL_SCREEN;
 
     const FA_STYLE = {
         padding: '0 6px',
@@ -44,8 +52,19 @@ function App() {
 
     const ctx = useMyContext();
 
+    const [hideOverlay, setHideOverlay] = useState(false);
+
     return (
-        <div className="App">              
+        <div className="App">  
+            {hideOverlay ? 
+                null 
+                :
+                <div className="start-overlay">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat voluptatibus assumenda enim officiis in expedita numquam ipsam pariatur, veritatis corrupti?</p>
+                    <button onClick={() => setHideOverlay(true)}>Commencer</button>
+                </div>
+            } 
+
             <div className='phone'>
                 <div className="top-bar">
                     <div className="speaker"></div>
@@ -55,8 +74,8 @@ function App() {
                 <button className="voldown"></button>
                 <div className="screen">
                     <div className={`content 
-                                    ${ctx.screen === HOME_SCREEN ? 'home-bg' : ''}
-                                    ${ctx.screen === MAPS_SCREEN ? 'maps-bg' : ''}
+                            ${ctx.screen === HOME_SCREEN ? 'home-bg' : ''}
+                            ${ctx.screen === MAPS_SCREEN ? 'maps-bg' : ''}
                         `}>
                         <div className="status-bar">
                         
@@ -64,7 +83,7 @@ function App() {
                             <>
                                 <div className="left-side">
                                     <FontAwesomeIcon icon={faSignal} style={FA_STYLE}/>SFR
-                                    <WifiOff style={MD_STYLE}/>
+                                    {ctx.online ? <Wifi style={MD_STYLE}/> : <WifiOff style={MD_STYLE}/> }
                                 </div>
                                 <div className="middle-side">
                                     {(ctx.screen === LOCK_SCREEN || ctx.screen === UNLOCK_SCREEN) &&
@@ -106,11 +125,26 @@ function App() {
                         {ctx.screen === WIFI_SCREEN &&                       
                             (<WifiScreen />)
                         }
+                        {ctx.screen === OUTLOOK_SCREEN &&                       
+                            (<OutlookScreen />)
+                        }
+                        {ctx.screen === EMAIL_SCREEN &&                       
+                            (<HomeScreen />)
+                        }
                     </div>
                 </div>  
                     <div className="bottom-bar">
                         <div className="the-button" onClick={() => ctx.setScreen(ctx.screen === OFF_SCREEN ? LOCK_SCREEN : OFF_SCREEN)}></div>
                     </div>
+            </div>
+
+            <div className="sticky-note">
+                <p>—  Penser mettre à jour profil Facebook</p>
+                <p>—  Anniversaire de mariage ce soir ! !</p>
+            </div>
+
+            <div className='credit-card-div'>
+                <CreditCard />
             </div>
         </div>
     );

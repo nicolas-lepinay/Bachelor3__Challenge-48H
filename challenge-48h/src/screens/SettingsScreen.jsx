@@ -49,12 +49,9 @@ function SettingsScreen() {
 
     return (
         <div className='settings-screen'>
-
             <FontAwesomeIcon className='icon' icon={faChevronLeft} style={CHEVRON_STYLE} onClick={() => ctx.setScreen(HOME_SCREEN)}/>
-            
             <div className='settings-container'>
                 <h1>Paramètres</h1>
-
                 <div className={`setting ${shakeClass1}`} onClick={() => setShakeClass1('shake')}>
                     <div className='round-icon blue'>
                         <FontAwesomeIcon icon={faDatabase} style={FA_STYLE}/>
@@ -94,9 +91,7 @@ function SettingsScreen() {
                         <p style={{fontSize: '0.8rem', opacity: '0.7'}}>MIUI Global 12.5.8</p>
                     </div>
                 </div>
-
             </div>
-            
         </div>
     )
 }

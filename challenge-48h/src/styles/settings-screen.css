@@ -40,6 +40,10 @@
     background-color: rgb(69, 74, 87);
 }
 
+.round-icon.light-blue {
+    background-color: rgb(161, 196, 255);
+}
+
 .text p {
     margin: 2px 0;
 }

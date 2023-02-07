@@ -15,6 +15,7 @@ function GoogleReviewsScreen() {
     const ctx = useMyContext();
 
     const MAPS_SCREEN = process.env.REACT_APP_MAPS_SCREEN;
+    const WIFI_CODE = process.env.REACT_APP_WIFI_CODE;
 
     const FA_STYLE = {
         height: '40px',
@@ -36,7 +37,7 @@ function GoogleReviewsScreen() {
                 <p style={{opacity: '0.7'}}>Actuellement ouvert</p>
                 <p>09:00 – 21:00</p>
                 <p style={{fontSize: '0.9rem'}}>Cuisine créative, et plats végétariens et sans allergènes, servis pour le petit-déjeuner et le déjeuner dans une ambiance détendue.</p>
-                <p style={{fontSize: '0.9rem'}}>Code WIFI gratuit : VERM33R</p>
+                <p style={{fontSize: '0.9rem'}}>Code WIFI gratuit : {WIFI_CODE}</p>
             </div>
 
             <div className='review-description' style={{borderBottom: 'none', paddingTop: '30px'}}>

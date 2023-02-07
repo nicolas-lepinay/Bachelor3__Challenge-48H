@@ -7,13 +7,15 @@ import { Context } from '../context/context';
 function useProvideContext() {
 
     const OFF_SCREEN = process.env.REACT_APP_OFF_SCREEN;
-    const LOCK_SCREEN = process.env.REACT_APP_LOCK_SCREEN;
 
     const [screen, setScreen] = useState(OFF_SCREEN);
+    const [online, setOnline] = useState(false);
+    const [loggedInToEmail, setLoggedInToEmail] = useState(false);
 
     return {
-        screen,
-        setScreen
+        screen, setScreen,
+        online, setOnline,
+        loggedInToEmail, setLoggedInToEmail
     }
 }
 
